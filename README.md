@@ -1,50 +1,80 @@
-# React + TypeScript + Vite
+# 200 OVAS Project 🎯
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción 🐱‍👤
 
-Currently, two official plugins are available:
+Este es un proyecto de OVA (Objeto Virtual de Aprendizaje) construido con **React** y **TypeScript**. El proyecto utiliza **UnoCSS** para el manejo de estilos y **Books-UI** como biblioteca de componentes. El manejo de dependencias y scripts se realiza mediante npm.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requisitos 📦
 
-## Expanding the ESLint configuration
+- Node.js (>= 18.x)
+- npm (>= 9.x)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Iniciar el proyecto 🚀
 
-- Configure the top-level `parserOptions` property like this:
+1. Clona este repositorio en tu máquina local:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+  ```bash
+  git clone --recurse-submodules git@github.com:200-OVAs-2025/ova-template.git
+  ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navega al directorio del proyecto:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  ```bash
+  cd ova-template
+  ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+3. Actualiza los cambios del submódulo **CORE**:
+
+  ```bash
+  cd src/shared/core 
+  ```
+
+  ```bash
+  git pull origin develop
+  ```
+
+4. Actualiza los cambios del submódulo **UI**:
+
+  ```bash
+  cd src/shared/ui 
+  ```
+
+  ```bash
+  git pull origin develop
+  ```
+
+5. Instala las dependencias necesarias:
+
+  ```bash
+  npm install
+  ```
+
+## Scripts Disponibles 📜
+
+En el directorio del proyecto, puedes ejecutar los siguientes comandos:
+
+### `npm dev` ▶️
+
+Ejecuta la aplicación en modo de desarrollo. La página se recargará si realizas modificaciones en el código.
+
+### `npm run build` 🏗️
+
+Construye la aplicación para producción en la carpeta `dist`. Junto con esta carpeta se generará otra `ova-zip` donde encontrarás el código para producción en un archivo `.zip`.
+
+### `npm run cz`📝
+
+Utiliza `commitizen` para crear un commit conforme a las convenciones establecidas. Ejecuta este comando para guiarte a través del proceso de creación de un commit con un formato estandarizado.
+
+## Uso de Books-UI 📚
+
+[Books-UI](https://www.npmjs.com/package/books-ui) es una biblioteca de componentes personalizada utilizada en este proyecto. Puedes importar y utilizar componentes de la siguiente manera:
+
+```tsx
+import { Button } from 'books-ui';
+
+const MyComponent = () => {
+  return (
+    <Button label="Haz clic aquí" onClick={() => alert('¡Botón clicado!')} />
+  );
+};
 ```
