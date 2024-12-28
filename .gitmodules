@@ -1,0 +1,3 @@
+[submodule "src/shared/core"]
+	path = src/shared/core
+	url = git@github.com:200-OVAs-2025/core.git
